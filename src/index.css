@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    @apply text-slate-100 bg-[#070d1a] antialiased selection:bg-blue-500/30 selection:text-white;
+  }
+}
+
+.font-serif { font-family: 'Times New Roman', 'Tinos', 'Georgia', serif; }
+body { overflow-x:hidden; -webkit-tap-highlight-color:transparent; }
+.hide-scrollbar::-webkit-scrollbar{display:none}.hide-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+img{max-width:100%;height:auto}
+
+@media(max-width:1023px){
+ #mobile-sidebar-toggle-btn{position:absolute;top:50%;right:max(12px,env(safe-area-inset-right));transform:translateY(-50%);width:44px;height:44px;min-width:44px;min-height:44px;margin:0;z-index:10001;border-radius:14px;display:flex;align-items:center;justify-content:center;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+ #mobile-sidebar-toggle-btn>div{width:22px;height:18px;flex:0 0 auto}
+ #mobile-sidebar-toggle-btn>div>span{display:block;height:2px;min-height:2px;border-radius:9999px}
+ #mobile-sidebar-toggle-btn:focus-visible{outline:2px solid rgba(96,165,250,.85);outline-offset:2px}
+}
+@media(max-width:380px){#mobile-sidebar-toggle-btn{right:10px;width:42px;height:42px;min-width:42px;min-height:42px;border-radius:13px}}
+
+@media(max-width:639px){
+ #atlet{width:100%;max-width:100%;overflow-x:hidden;overflow-y:visible;padding-top:.75rem;padding-bottom:6rem}
+ #atlet>.relative.z-10,#atlet .max-w-7xl{width:100%;max-width:100%;min-width:0}
+ #atlet input{min-width:0;height:46px}
+ #atlet .no-scrollbar{scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+ #atlet .no-scrollbar::-webkit-scrollbar{display:none}
+ #atlet .no-scrollbar button{min-height:42px;padding-left:.9rem;padding-right:.9rem}
+ #atlet .swiper{width:100%;max-width:100%;min-width:0;overflow:hidden;touch-action:pan-y}
+ #atlet .swiper-wrapper{align-items:stretch}
+ #atlet .swiper-slide{width:100%!important;max-width:100%;min-width:0;flex-shrink:0}
+ #atlet .swiper-slide>div{width:100%;max-width:100%;aspect-ratio:4/5;min-height:0;border-radius:1.5rem;overflow:hidden}
+ #atlet .swiper-slide img{width:100%;height:100%;object-fit:cover}
+ #atlet .swiper-slide .bottom-8{left:1rem;right:1rem;bottom:1rem}
+ #atlet .swiper-slide .bottom-8 h3{margin-bottom:.75rem;font-size:1.05rem;line-height:1.15}
+ #atlet .swiper-slide .bottom-8 .pt-4{padding-top:.65rem}
+ #atlet button[class*="md:-left-6"],#atlet button[class*="md:-right-6"]{opacity:1!important;width:40px;height:40px;min-width:40px;min-height:40px;top:50%;z-index:30;border-radius:9999px;touch-action:manipulation}
+ #atlet button[class*="md:-left-6"]{left:.4rem}#atlet button[class*="md:-right-6"]{right:.4rem}
+ #atlet button[class*="md:-left-6"] svg,#atlet button[class*="md:-right-6"] svg{width:20px;height:20px}
+}
+@media(min-width:640px) and (max-width:1023px){#atlet .swiper-slide>div{max-width:100%}}
+
+@media(max-width:767px){
+ #berita-section,#prestasi{width:100%;max-width:100%;overflow-x:hidden}
+ #berita-section>.relative.z-10,#prestasi>.relative.z-10,#berita-section .max-w-7xl,#prestasi .max-w-7xl{width:100%;max-width:100%;min-width:0}
+ #berita-section .grid,#prestasi .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:.75rem!important;min-width:0}
+ #berita-section .grid>* ,#prestasi .grid>*{min-width:0;width:100%;overflow:hidden}
+ #berita-section .grid>*{border-radius:1rem!important}
+ #prestasi .grid>*{border-radius:1rem!important;padding:.75rem!important}
+ #berita-section h1,#berita-section h2,#prestasi h1,#prestasi h2{font-size:1.45rem;line-height:1.12;margin-bottom:.6rem}
+ #berita-section .grid h3,#prestasi .grid h3{font-size:.86rem;line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ #berita-section .grid p,#prestasi .grid p{font-size:.68rem;line-height:1.25}
+ #berita-section .grid img{width:100%;height:92px;object-fit:cover}
+ #prestasi .grid img{max-height:72px;object-fit:cover}
+ #prestasi .grid .w-14,#prestasi .grid .w-16{width:2.5rem;height:2.5rem;margin-bottom:.5rem}
+ #prestasi .grid .mb-6{margin-bottom:.5rem}
+ #prestasi .grid .mb-5{margin-bottom:.5rem}
+ #prestasi .grid .rounded-2xl{border-radius:.75rem}
+ #prestasi .grid .p-3{padding:.5rem}
+ #prestasi .grid .text-lg{font-size:.95rem}
+ #prestasi .grid .text-sm{font-size:.7rem}
+ #prestasi .grid .leading-relaxed{line-height:1.25}
+ #berita-section .pagination,#prestasi .pagination{margin-top:.75rem;display:flex;justify-content:center;align-items:center;gap:.35rem;min-height:40px}
+ #berita-section .pagination button,#prestasi .pagination button{min-width:38px;min-height:38px;padding:.4rem .6rem}
+}
+
+@media(max-width:380px){
+ #berita-section .grid,#prestasi .grid{gap:.6rem!important}
+ #berita-section .grid img{height:78px}
+ #berita-section .grid h3,#prestasi .grid h3{font-size:.8rem}
+ #prestasi .grid>*{padding:.65rem!important}
+}
+
+#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"]{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;min-height:42px!important;padding:8px 12px!important;color:#e2e8f0!important;white-space:nowrap!important;touch-action:manipulation!important;-webkit-tap-highlight-color:transparent!important}
+#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"] > span{display:inline-block!important;visibility:visible!important;opacity:1!important;width:auto!important;max-width:none!important;overflow:visible!important;font-size:12px!important;line-height:1.2!important;font-weight:800!important;letter-spacing:.02em!important;color:inherit!important}
+#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"] > span::after{content:" ke Daftar Foto"!important;font:inherit!important;color:inherit!important}
+#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"] > svg{width:20px!important;height:20px!important;flex:0 0 auto!important}
+@media(max-width:767px){#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"]{min-height:44px!important;padding:8px 10px!important;gap:7px!important}#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"] > span{font-size:11px!important}}
+@media(min-width:768px){#gallery .gallery-lightbox > div:first-child button[aria-label="Kembali"] > span{font-size:12px!important}}
+
+@media(max-width:767px){
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .grid > div.group {position:relative;padding-bottom:72px!important;overflow:visible!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .grid > div.group > div:last-child {position:absolute!important;top:12px;right:12px;z-index:40;display:flex!important;gap:8px!important;width:auto!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .grid > div.group > div:last-child button {flex:0 0 46px!important;width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important;padding:0!important;display:flex!important;align-items:center!important;justify-content:center!important;border:1px solid rgba(255,255,255,.16)!important;box-shadow:0 8px 24px rgba(0,0,0,.45)!important;background:rgba(37,99,235,.96)!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .grid > div.group > div:last-child button:last-child {background:rgba(39,39,42,.96)!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .grid > div.group > div:last-child button svg {width:20px!important;height:20px!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .fixed.inset-0.z-\[100\] {overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;align-items:flex-start!important;padding-top:max(12px,env(safe-area-inset-top))!important;padding-bottom:max(12px,env(safe-area-inset-bottom))!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .fixed.inset-0.z-\[100\] > div {width:100%!important;max-height:calc(100dvh - 24px)!important;margin:auto 0!important}
+  body:has(input[placeholder="CARI JUDUL BERITA..."]) .fixed.inset-0.z-\[100\] form.custom-scrollbar,body:has(input[placeholder="CARI JUDUL BERITA..."]) .fixed.inset-0.z-\[100\] form.overflow-y-auto {min-height:0!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;padding-bottom:24px!important}
+}
+
+/* =========================================================
+   PUBLIC TOURNAMENT REGISTRATION — STABLE SCROLL + POPUP LAYERING
+   The registration page owns the viewport scroll. Fixed overlays/popups
+   must never lock the document after they close.
+   ========================================================= */
+body:has(main.pt-16) {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100% !important;
+  overscroll-behavior-y: auto !important;
+}
+
+body:has(main.pt-16) #root,
+body:has(main.pt-16) #root > div {
+  min-height: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+body:has(main.pt-16) main.pt-16 {
+  position: relative !important;
+  width: 100% !important;
+  min-height: calc(100dvh - 64px) !important;
+  height: auto !important;
+  overflow: visible !important;
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+body:has(main.pt-16) main.pt-16 > div {
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 100% !important;
+}
+
+/* SweetAlert2 must sit above the registration content without changing
+   document scroll. Its backdrop is isolated from the page flow. */
+body:has(main.pt-16) .swal2-container {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 200000 !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)) !important;
+  box-sizing: border-box !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  pointer-events: auto !important;
+}
+
+body:has(main.pt-16) .swal2-popup {
+  position: relative !important;
+  z-index: 200001 !important;
+  max-width: min(92vw, 520px) !important;
+  max-height: calc(100dvh - 32px) !important;
+  overflow-y: auto !important;
+  margin: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Do not let a closed popup leave SweetAlert's body scroll lock behind. */
+body.swal2-shown:has(main.pt-16) {
+  overflow-y: auto !important;
+  padding-right: 0 !important;
+}
+
+@media(max-width:767px){
+  body:has(main.pt-16) .swal2-container {align-items:flex-start!important}
+  body:has(main.pt-16) .swal2-popup {width:min(94vw,460px)!important;margin:auto!important}
+  body:has(main.pt-16) main.pt-16 {padding-bottom:max(72px,env(safe-area-inset-bottom))!important}
+}
+
+@media(min-width:768px){
+  body:has(main.pt-16) .swal2-container {align-items:center!important}
+  body:has(main.pt-16) .swal2-popup {width:min(92vw,560px)!important}
+}
