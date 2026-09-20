@@ -12,6 +12,7 @@ import Fasilitas from './components/Fasilitas';
 import News from './components/News';
 import PrayerTimes from './components/PrayerTimes';
 import Contact from './components/Contact';
+import InformasiRekeningQris from './components/InformasiRekeningQris';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import ImagePopup from './components/ImagePopup';
@@ -50,7 +51,7 @@ function ScrollToTop() {
 function UrlSynchronizer({ activeView, setActiveView }: { activeView: string | null; setActiveView: (view: string | null) => void }) {
   const location = useLocation();
   const fullPageMenus = useRef(new Set([
-    'jadwal','jadwal-latihan','schedule','kas','quiz','contact','kontak',
+    'jadwal','jadwal-latihan','schedule','kas','quiz','contact','kontak','informasi-rekening-qris','rekening-qris','qris-pb-bilibili-162',
     'struktur','struktur-organisasi','dokumen-penting','dokumen','documents',
     'register','pendaftaran','pendaftaran-turnamen','pendaftaran/seeded-peserta',
     'peringkat','rankings','ranking','atlet','players','player',
@@ -88,7 +89,7 @@ export default function App() {
   const [activeAthleteFilter, setActiveAthleteFilter] = useState('all');
   const [activeView, setActiveView] = useState<string | null>(() => {
     const path = window.location.pathname.substring(1).toLowerCase().replace(/\/$/, '');
-    const supported = new Set(['jadwal','jadwal-latihan','schedule','kas','quiz','contact','kontak','struktur','struktur-organisasi','dokumen-penting','dokumen','documents','register','pendaftaran','pendaftaran-turnamen','pendaftaran/seeded-peserta','peringkat','rankings','ranking','atlet','players','player','tentang-kami','about','tentang','sejarah','galeri','gallery','visi-misi','visi','misi','fasilitas','inventaris','public-inventaris','berita','news','faq','sambutan','sambutan-ketua','prestasi','program']);
+    const supported = new Set(['jadwal','jadwal-latihan','schedule','kas','quiz','contact','kontak','informasi-rekening-qris','rekening-qris','qris-pb-bilibili-162','struktur','struktur-organisasi','dokumen-penting','dokumen','documents','register','pendaftaran','pendaftaran-turnamen','pendaftaran/seeded-peserta','peringkat','rankings','ranking','atlet','players','player','tentang-kami','about','tentang','sejarah','galeri','gallery','visi-misi','visi','misi','fasilitas','inventaris','public-inventaris','berita','news','faq','sambutan','sambutan-ketua','prestasi','program']);
     if (supported.has(path)) return path;
     const params = new URLSearchParams(window.location.search);
     if (params.has('newsId')) return 'berita';
@@ -140,7 +141,7 @@ export default function App() {
       berita: 'berita', news: 'berita', prestasi: 'prestasi', program: 'program',
       fasilitas: 'fasilitas', inventaris: 'inventaris', faq: 'faq', quiz: 'quiz',
       jadwal: 'jadwal', 'jadwal-latihan': 'jadwal', schedule: 'jadwal',
-      contact: 'contact', kontak: 'contact', kas: 'kas', sambutan: 'sambutan', 'sambutan-ketua': 'sambutan'
+      contact: 'contact', kontak: 'contact', 'informasi rekening dan qris': 'informasi-rekening-qris', 'informasi-rekening-qris': 'informasi-rekening-qris', 'rekening-qris': 'informasi-rekening-qris', 'qris-pb-bilibili-162': 'informasi-rekening-qris', kas: 'kas', sambutan: 'sambutan', 'sambutan-ketua': 'sambutan'
     };
     const targetRaw = sub || main || 'home';
     const target = aliases[targetRaw] || targetRaw;
@@ -173,6 +174,7 @@ export default function App() {
       case 'program': return <PublicProgram />;
       case 'jadwal': case 'jadwal-latihan': case 'schedule': return <JadwalLatihanView />;
       case 'contact': case 'kontak': return <Contact />;
+      case 'informasi-rekening-qris': case 'rekening-qris': case 'qris-pb-bilibili-162': return <InformasiRekeningQris />;
       case 'sejarah': case 'about': case 'tentang': case 'tentang-kami': return <Sejarah />;
       case 'visi-misi': case 'visi': case 'misi': return <VisiMisi />;
       case 'fasilitas': return <Fasilitas />;
@@ -204,6 +206,7 @@ export default function App() {
         <Route path="/admin/*" element={<AdminLayout email={session?.user?.email || ''}><AdminDashboard /></AdminLayout>} />
         <Route path="/login" element={<Login />} />
         <Route path="/pendaftaran-turnamen" element={<PendaftaranTurnamen />} />
+        <Route path="/informasi-rekening-qris" element={<InformasiRekeningQris />} />
         <Route path="/pendaftaran/seeded-peserta" element={<PublicSeededPeserta />} />
         <Route path="*" element={renderPublicShell()} />
       </Routes>
