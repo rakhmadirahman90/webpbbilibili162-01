@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
-import { Globe, ChevronDown, Menu, X, MapPin, UserPlus, FileText, Trophy, BrainCircuit, Youtube, Instagram, Facebook, Twitter, Radio, LogIn, LayoutDashboard, LogOut, Timer, HelpCircle, Info, Users, Award, Image as ImageIcon, Building2, Target, Shield, Newspaper, Sparkles } from 'lucide-react';
+import { Globe, ChevronDown, Menu, X, MapPin, UserPlus, FileText, Trophy, BrainCircuit, Youtube, Instagram, Facebook, Twitter, Radio, LogIn, LayoutDashboard, LogOut, Timer, HelpCircle, Info, Users, Award, Image as ImageIcon, Building2, Target, Shield, Newspaper, Sparkles, CreditCard } from 'lucide-react';
 import { supabase, warmupRouteData } from '../supabase';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -23,7 +23,9 @@ export const DEFAULT_NAV_ITEMS = [
   { id: 'register', label: 'Pendaftaran Atlet Baru', path: 'register', type: 'link', parent_id: 'atlet', order_index: 5 },
   { id: 'galeri', label: 'Galeri', path: 'gallery', type: 'link', parent_id: null, order_index: 5 },
   { id: 'jadwal', label: 'Jadwal Latihan', path: 'jadwal', type: 'link', parent_id: null, order_index: 6 },
-  { id: 'contact', label: 'Hubungi Kami', path: 'contact', type: 'link', parent_id: null, order_index: 7 },
+  { id: 'contact', label: 'Hubungi Kami', path: 'contact', type: 'dropdown', parent_id: null, order_index: 7 },
+  { id: 'contact-main', label: 'Kontak & Markas Besar', path: 'contact', type: 'link', parent_id: 'contact', order_index: 1 },
+  { id: 'contact-payment', label: 'Informasi Rekening & QRIS PB Bilibili 162', path: 'informasi-rekening-qris', type: 'link', parent_id: 'contact', order_index: 2 },
   { id: 'faq', label: 'FAQ', path: 'faq', type: 'link', parent_id: null, order_index: 8 }
 ];
 
@@ -179,7 +181,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
 
   const iconFor = (path = '', label = '') => {
     const p = path.toLowerCase(), l = label.toLowerCase();
-    const C = p.includes('jadwal') ? Timer : p.includes('berita') ? Newspaper : p.includes('prestasi') ? Award : p.includes('atlet') || l.includes('atlet') ? Users : p.includes('peringkat') || p.includes('rank') ? Trophy : p.includes('quiz') || p.includes('kuis') ? BrainCircuit : p.includes('gallery') || p.includes('galeri') ? ImageIcon : p.includes('contact') || l.includes('hubungi') ? MapPin : p.includes('faq') ? HelpCircle : p.includes('fasilitas') ? Building2 : p.includes('visi') ? Target : p.includes('struktur') ? Users : p.includes('dokumen') ? FileText : p.includes('tentang') || p === 'about' ? Shield : p === 'quiz' ? BrainCircuit : p === 'home' ? Globe : Sparkles;
+    const C = p.includes('jadwal') ? Timer : p.includes('berita') ? Newspaper : p.includes('prestasi') ? Award : p.includes('atlet') || l.includes('atlet') ? Users : p.includes('peringkat') || p.includes('rank') ? Trophy : p.includes('quiz') || p.includes('kuis') ? BrainCircuit : p.includes('gallery') || p.includes('galeri') ? ImageIcon : p.includes('qris') || p.includes('rekening') || l.includes('rekening') || l.includes('qris') ? CreditCard : p.includes('contact') || l.includes('hubungi') ? MapPin : p.includes('faq') ? HelpCircle : p.includes('fasilitas') ? Building2 : p.includes('visi') ? Target : p.includes('struktur') ? Users : p.includes('dokumen') ? FileText : p.includes('tentang') || p === 'about' ? Shield : p === 'quiz' ? BrainCircuit : p === 'home' ? Globe : Sparkles;
     return <C size={15} className="shrink-0 text-blue-400" />;
   };
 
